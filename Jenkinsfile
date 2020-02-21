@@ -1,7 +1,7 @@
 // Config
 class Globals {
    static String GitRepo = 'https://github.com/robliv/powershell-pipeline'
-   static String ModuleName = 'test'
+   static String ModuleName = 'powershell-pipeline'
 }
 
 // Workflow Steps
