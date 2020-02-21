@@ -1,4 +1,5 @@
 write-output "Running static tests!"
+$ErrorActionPreference = "stop"
 
 try {
     Install-PackageProvider Nuget -MinimumVersion 2.8.5.201 –Force
@@ -10,11 +11,13 @@ try {
 
     if ($analysis){
         $analysis
-        $analysis | Format-Table
-        throw "Failed static code analysis!"
+        Write-Output "Failed static code analysis!"
+        Exit 12345
     }
 
 }
 catch {
-    
+    $error
+    write-output "Critical error in script. Exiting."
+    $error.Clear()
 }
