@@ -9,13 +9,13 @@ try {
 
 
     if ($analysis){
+        write-host "-----------`nPSScriptAnalyzer found some warnings/errors:"
         $analysis
-        throw "Failed static code analysis!"
+        throw 
     }
 
 }
 catch {
     $error
-    write-output "Critical error in script. Exiting."
-    $error.Clear()
+    throw "Failed. Script exiting."
 }
