@@ -1,4 +1,4 @@
-write-output "Running static tests!"
+write-output "--------------`nRunning static tests!--------------`n"
 $ErrorActionPreference = "stop"
 
 try {
@@ -9,13 +9,14 @@ try {
 
 
     if ($analysis){
-        write-host "-----------`nPSScriptAnalyzer found some warnings/errors:"
+        write-host "--------------`nPSScriptAnalyzer found some warnings/errors:"
         $analysis
-        throw 
+        exit 1
     }
 
 }
 catch {
     $error
-    throw "Failed. Script exiting."
+    Write-Output "--------------`nCritical error was found. Exiting.--------------`n"
+    exit 1
 }
