@@ -22,5 +22,5 @@ node('WS2019') {
 
 // Helper function to run PowerShell Commands
 def posh(cmd) {
-  bat 'powershell.exe -NonInteractive -NoProfile -ExecutionPolicy Bypass -File "& ' + cmd + '"'
+  bat 'powershell.exe -NonInteractive -NoProfile -ExecutionPolicy Bypass -File "' + cmd + '"'
 }
