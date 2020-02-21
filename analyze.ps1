@@ -13,6 +13,9 @@ try {
         $analysis
         exit 1
     }
+    else{
+        write-host "--------------`nPSScriptAnalyzer found no isses. Passed.`n--------------`n"
+    }
 
 }
 catch {

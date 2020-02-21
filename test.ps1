@@ -7,7 +7,7 @@ try {
     Import-Module Pester
     Import-Module .\ExtractSCCM -force
     
-    Invoke-Pester -OutputFile $(System.DefaultWorkingDirectory)\Test-Pester.XML -OutputFormat NUnitXML
+    Invoke-Pester -OutputFile .\Test-Pester.XML -OutputFormat NUnitXML
 
 }
 catch {
