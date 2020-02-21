@@ -1,7 +1,7 @@
 // Config
 class Globals {
-   static String GitRepo = 'https://github.com/robliv/SCCMAssets'
-   static String ModuleName = 'SCCMAssets'
+   static String GitRepo = 'https://github.com/robliv/powershell-pipeline'
+   static String ModuleName = 'test'
 }
 
 // Workflow Steps
