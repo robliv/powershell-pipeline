@@ -2,9 +2,12 @@ write-output "--------------`nRunning Pester tests!`n--------------`n"
 $ErrorActionPreference = "stop"
 
 try {
-    Install-PackageProvider Nuget -MinimumVersion 2.8.5.201 -Force
-    Install-Module -Name Pester -Force
-
+    Install-PackageProvider Nuget -MinimumVersion 2.8.5.201
+    Install-Module -Name Pester -Force -SkipPublisherCheck
+    Import-Module Pester
+    Import-Module .\ExtractSCCM -force
+    
+    Invoke-Pester -OutputFile $(System.DefaultWorkingDirectory)\Test-Pester.XML -OutputFormat NUnitXML
 
 }
 catch {

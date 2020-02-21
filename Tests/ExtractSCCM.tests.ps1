@@ -1,4 +1,4 @@
-Import-Module .\ExtractSCCM -force
+
 
 Describe  "Test 'test-me' function" {
 
