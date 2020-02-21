@@ -3,7 +3,7 @@ $ErrorActionPreference = "stop"
 
 try {
     Install-PackageProvider Nuget -MinimumVersion 2.8.5.201 -Force
-    Install-Module -Name PSScriptAnalyzer
+    Install-Module -Name PSScriptAnalyzer -force
 
     $analysis = Invoke-ScriptAnalyzer -Path ".\$($env:ModuleName)" -Settings PSGallery -Recurse
 
