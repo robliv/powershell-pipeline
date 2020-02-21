@@ -1,0 +1,34 @@
+pipeline {
+  agent { label 'WS2019' }
+  stages {
+    stage('Clone') {
+      steps {
+        git 'https://github.com/digitalvarys/jenkins-tutorials.git'
+      }
+    }
+    stage('Analyze') {
+      tools {
+        gradle 'gradle4'
+      }
+      steps {
+        sh 'gradle clean compileJava test'
+      }
+    }
+        stage('Test') {
+      tools {
+        gradle 'gradle4'
+      }
+      steps {
+        sh 'gradle clean compileJava test'
+      }
+    }
+        stage('Publish') {
+      tools {
+        gradle 'gradle4'
+      }
+      steps {
+        sh 'gradle clean compileJava test'
+      }
+    }
+  }
+}
