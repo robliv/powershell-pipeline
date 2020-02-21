@@ -5,7 +5,7 @@ class Globals {
 }
 
 // Workflow Steps
-node('master') {
+node('WS2019') {
   try {
     
     stage('Stage 0: Clone') {
