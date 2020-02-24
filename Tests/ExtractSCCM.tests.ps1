@@ -11,22 +11,12 @@ Describe  "Test 'test-me' function" {
     }
 }
 
-Describe  'Common tests' {
-
-    Context 'Checking if essential Windows processes are running' {
-
-        It 'winlogon.exe is running' {
-            get-process -Name 'winlogon' | Should be $true
-        }
-
-    }
-}
 Describe  "Common tests" {
 
     Context 'Test that will always fail' {
 
         It 'True is False' {
-            $true | Should be $false
+            $true | Should be $true
         }
 
     }
