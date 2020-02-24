@@ -16,7 +16,7 @@ node('WS2019') {
     }
     stage('Stage 2: Test') {
       posh 'test.ps1'
-      nunit testResultsPattern: 'Test-Pester.xml'
+      nunit testResultsPattern: 'Test-Pester.XML'
     }
     stage('Stage 3: Publish') {
       posh 'publish.ps1'
