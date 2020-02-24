@@ -1,3 +1,3 @@
 write-output "Publishing module to gallery!"
 
-#update version number
+#update version numbers
