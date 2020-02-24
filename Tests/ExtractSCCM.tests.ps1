@@ -16,7 +16,7 @@ Describe  "Common tests" {
     Context 'Test that will always fail' {
 
         It 'True is False' {
-            $true | Should be $true
+            $true | Should be $false
         }
 
     }
