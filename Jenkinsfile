@@ -8,7 +8,7 @@ pipeline {
   }
   options {
         timeout(time: 1, unit: 'HOURS') 
-        skipStagesAfterUnstable()
+        //skipStagesAfterUnstable()
         quietPeriod(0)
         timestamps()
     }
@@ -50,16 +50,17 @@ pipeline {
       steps {
         echo 'Running Test stage!'
         powershell script: '.\\test.ps1'
+        nunit testResultsPattern: 'Test-Pester.XML'
       }
       post{
         success {
-            echo 'This will run only if successful'
+            echo 'Tests successful.'
         }
         failure {
-            echo 'This will run only if failed'
+            echo 'Tests failed'
         }
         unstable {
-            echo 'This will run only if the run was marked as unstable'
+            echo 'Tests unstable'
         }
       }
     }
@@ -71,13 +72,13 @@ pipeline {
       }
       post{
         success {
-            echo 'This will run only if successful.'
+            echo 'Publish successful.'
         }
         failure {
-            echo 'This will run only if failed'
+            echo 'Publish failed'
         }
         unstable {
-            echo 'This will run only if the run was marked as unstable'
+            echo 'Publish unstable'
         }
       }
     }
@@ -89,13 +90,13 @@ pipeline {
       }
       post{
         success {
-            echo 'This will run only if successful'
+            echo 'Publish w successful'
         }
         failure {
-            echo 'This will run only if failed'
+            echo 'Publish  failed'
         }
         unstable {
-            echo 'This will run only if the run was marked as unstable'
+            echo 'Publish unstable'
         }
       }
     }
