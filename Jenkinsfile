@@ -8,7 +8,7 @@ pipeline {
   }
   options {
         timeout(time: 1, unit: 'HOURS') 
-        //skipStagesAfterUnstable()
+        skipStagesAfterUnstable()
         quietPeriod(0)
         timestamps()
     }
@@ -32,7 +32,7 @@ pipeline {
     stage('Analyze') {
       steps {
         echo 'Running Analyze stage using powershell step!'
-        powershell '-file ./test1.ps1'
+        powershell returnStatus: true, script: '.\\test1.ps1'
       }
       post{
         success {
@@ -66,7 +66,7 @@ pipeline {
       when { environment name: 'publish_to', value: 'production' }
       steps {
         echo 'Running Publish-prod stage using input!'
-        input "Does the staging environment look ok?"
+        input "Push to prod?"
       }
       post{
         success {
@@ -84,7 +84,7 @@ pipeline {
       when { environment name: 'publish_to', value: 'stage' }
       steps {
         echo 'Running Publish-stage stage using input!'
-        input "Does the staging environment look ok?"
+        input "Push to stage env?"
       }
       post{
         success {
