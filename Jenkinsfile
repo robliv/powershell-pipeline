@@ -32,14 +32,14 @@ pipeline {
     stage('Analyze') {
       steps {
         echo 'Running Analyze stage using powershell step!'
-        powershell returnStatus: true, label: testLabel, script: '.\\test1.ps1'
+        powershell script: '.\\analyze.ps1'
       }
       post{
         success {
             echo 'analyze stage success'
         }
         failure {
-            echo 'analyze stage  failed'
+            echo 'analyze stage failed'
         }
         unstable {
             echo 'analyze stage unstable'
@@ -49,6 +49,7 @@ pipeline {
         stage('Test') {
       steps {
         echo 'Running Test stage!'
+        powershell script: '.\\test.ps1'
       }
       post{
         success {
