@@ -1,5 +1,4 @@
 
-gci -Path .\
 function test-me {
     param (
         $num
