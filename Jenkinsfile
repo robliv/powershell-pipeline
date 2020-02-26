@@ -31,8 +31,8 @@ pipeline {
     }
     stage('Analyze') {
       steps {
-        echo 'Running Analyze stage using batch step!'
-        posh 'test1.ps1'
+        echo 'Running Analyze stage using powershell step!'
+        powershell '-file ./test1.ps1'
       }
       post{
         success {
@@ -48,19 +48,17 @@ pipeline {
     }
         stage('Test') {
       steps {
-        echo 'Running Test stage using powershell step!'
-        powershell 'test1.ps1'
+        echo 'Running Test stage!'
       }
       post{
         success {
-            echo 'This will run only if successful powershell step'
-            posh 'psexec'
+            echo 'This will run only if successful'
         }
         failure {
-            echo 'This will run only if failed powershell step'
+            echo 'This will run only if failed'
         }
         unstable {
-            echo 'This will run only if the run was marked as unstable powershell step'
+            echo 'This will run only if the run was marked as unstable'
         }
       }
     }
