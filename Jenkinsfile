@@ -8,7 +8,7 @@ pipeline {
   }
   options {
         timeout(time: 1, unit: 'HOURS') 
-        skipStagesAfterUnstable()
+        //skipStagesAfterUnstable()
         quietPeriod(0)
         timestamps()
     }
@@ -19,13 +19,13 @@ pipeline {
       }
       post{
         success {
-            echo 'This will run only if successful'
+            echo 'clone stage success'
         }
         failure {
-            echo 'This will run only if failed'
+            echo 'clone stage failed'
         }
         unstable {
-            echo 'This will run only if the run was marked as unstable'
+            echo 'clone stage unstable'
         }
       }
     }
@@ -36,14 +36,13 @@ pipeline {
       }
       post{
         success {
-            echo 'This will run only if successful, using pwsh step'
-            pwsh 'test1.ps1'
+            echo 'analyze stage success'
         }
         failure {
-            echo 'This will run only if failed'
+            echo 'analyze stage  failed'
         }
         unstable {
-            echo 'This will run only if the run was marked as unstable'
+            echo 'analyze stage unstable'
         }
       }
     }
@@ -54,13 +53,14 @@ pipeline {
       }
       post{
         success {
-            echo 'This will run only if successful'
+            echo 'This will run only if successful powershell step'
+            psexec
         }
         failure {
-            echo 'This will run only if failed'
+            echo 'This will run only if failed powershell step'
         }
         unstable {
-            echo 'This will run only if the run was marked as unstable'
+            echo 'This will run only if the run was marked as unstable powershell step'
         }
       }
     }
@@ -72,7 +72,7 @@ pipeline {
       }
       post{
         success {
-            echo 'This will run only if successful'
+            echo 'This will run only if successful.'
         }
         failure {
             echo 'This will run only if failed'
