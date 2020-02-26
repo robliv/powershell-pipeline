@@ -54,7 +54,7 @@ pipeline {
       post{
         success {
             echo 'This will run only if successful powershell step'
-            psexec
+            posh 'psexec'
         }
         failure {
             echo 'This will run only if failed powershell step'
