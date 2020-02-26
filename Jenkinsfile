@@ -32,7 +32,7 @@ pipeline {
     stage('Analyze') {
       steps {
         echo 'Running Analyze stage using powershell step!'
-        powershell returnStatus: true, script: '.\\test1.ps1'
+        powershell returnStatus: true, label: testLabel, script: '.\\test1.ps1'
       }
       post{
         success {
