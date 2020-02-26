@@ -8,7 +8,7 @@ pipeline {
   }
   options {
         timeout(time: 1, unit: 'HOURS') 
-        //skipStagesAfterUnstable()
+
         quietPeriod(0)
         timestamps()
     }
@@ -67,8 +67,7 @@ pipeline {
         stage('Publish-prod') {
       when { environment name: 'publish_to', value: 'production' }
       steps {
-        echo 'Running Publish-prod stage using input!'
-        input "Push to prod?"
+        echo 'Running Publish-prod stage.'
       }
       post{
         success {
@@ -85,8 +84,7 @@ pipeline {
         stage('Publish-stage') {
       when { environment name: 'publish_to', value: 'stage' }
       steps {
-        echo 'Running Publish-stage stage using input!'
-        input "Push to stage env?"
+        echo 'Running Publish-stage stage.'
       }
       post{
         success {
