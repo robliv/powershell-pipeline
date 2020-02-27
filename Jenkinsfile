@@ -2,6 +2,7 @@ pipeline {
   agent { label 'WS2019' }
   parameters { 
     string(name: 'publish_to', defaultValue: 'stage', description: 'Choose to deploy to Production(prod) or staging(stage)') 
+    string(name: 'parameter2', defaultValue: 'test', description: 'testParam')
     }
   environment { 
     publish_to = "${params.publish_to}"
